@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abaisago <adam_bai@protonmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 13:01:22 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:29:57 by abosch           ###   ########.fr       */
+/*   Created: 2018/11/09 17:47:22 by abaisago          #+#    #+#             */
+/*   Updated: 2018/11/09 17:56:39 by abaisago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft/basic.h"
 
-# include "ft/basic.h"
-# include "ft/list.h"
-# include "ft/stdio.h"
-
-#endif
+char	*ft_strnew(size_t size)
+{
+	return ((char*)ft_memalloc(size + 1));
+}

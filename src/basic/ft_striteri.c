@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 13:01:22 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:29:57 by abosch           ###   ########.fr       */
+/*   Created: 2018/11/09 17:02:11 by abosch            #+#    #+#             */
+/*   Updated: 2018/11/15 16:59:31 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft/basic.h"
 
-# include "ft/basic.h"
-# include "ft/list.h"
-# include "ft/stdio.h"
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	int i;
 
-#endif
+	i = 0;
+	if (s && f)
+		while (*s)
+			f(i++, s++);
+}

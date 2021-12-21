@@ -1,0 +1,5 @@
+clang
+%c -Wall -Werror -Wextra
+%h
+-Ilibft
+-Iinclude

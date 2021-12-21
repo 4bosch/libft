@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lluitosa_base.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abaisago <adam_bai@protonmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 13:01:22 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:29:57 by abosch           ###   ########.fr       */
+/*   Created: 2019/03/08 15:39:51 by abaisago          #+#    #+#             */
+/*   Updated: 2019/03/12 17:58:15 by abaisago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft/basic.h"
+#include <string.h>
+#include <stdint.h>
 
-# include "ft/basic.h"
-# include "ft/list.h"
-# include "ft/stdio.h"
+char	*ft_lluitosa_base(size_t value, int8_t base, char *tab)
+{
+	size_t		i;
 
-#endif
+	i = 0;
+	ft_getnbr_base(value, base, tab, &i);
+	tab[i] = '\0';
+	return (tab);
+}

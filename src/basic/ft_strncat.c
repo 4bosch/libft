@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 13:01:22 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:29:57 by abosch           ###   ########.fr       */
+/*   Created: 2018/11/08 16:32:21 by abosch            #+#    #+#             */
+/*   Updated: 2018/11/09 11:05:59 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft/basic.h"
 
-# include "ft/basic.h"
-# include "ft/list.h"
-# include "ft/stdio.h"
+char	*ft_strncat(char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+	size_t	j;
 
-#endif
+	i = ft_strlen(s1);
+	j = -1;
+	while (++j < n && s2[j] != '\0')
+		s1[i + j] = s2[j];
+	s1[i + j] = '\0';
+	return (s1);
+}

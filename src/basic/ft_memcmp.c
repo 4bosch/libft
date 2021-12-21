@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 13:01:22 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:29:57 by abosch           ###   ########.fr       */
+/*   Created: 2018/11/08 11:28:18 by abosch            #+#    #+#             */
+/*   Updated: 2018/11/14 16:59:49 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft/basic.h"
 
-# include "ft/basic.h"
-# include "ft/list.h"
-# include "ft/stdio.h"
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	int i;
 
-#endif
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (--n && ((unsigned char*)s1)[i] == ((unsigned char*)s2)[i])
+		i++;
+	return (((unsigned char*)s1)[i] - (((unsigned char*)s2)[i]));
+}

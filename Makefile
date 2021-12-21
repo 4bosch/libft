@@ -6,7 +6,7 @@
 #    By: abosch <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 13:36:55 by abosch            #+#    #+#              #
-#    Updated: 2020/02/20 13:01:43 by abosch           ###   ########.fr        #
+#    Updated: 2021/12/21 20:12:35 by abosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRC_PATH = src
 
 SRC_LST_PATH := $(SRC_PATH)/lst
 
-SRC_TMP_PATH := $(SRC_PATH)/tmp
+SRC_BASIC_PATH := $(SRC_PATH)/basic
 
 SRC_STDIO_PATH := $(SRC_PATH)/stdio
 
@@ -26,7 +26,7 @@ INC_PATH = include
 
 
 #~~~~~~~~~NAMES~~~~~~~~~#
-SRC_TMP_NAME =	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c\
+SRC_BASIC_NAME =	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c\
 			ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c		\
 			ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c	\
 			ft_strrchr.c ft_strstr.c ft_strnstr.c ft_strcmp.c ft_strncmp.c	\
@@ -59,7 +59,7 @@ SRC_STDIO_NAME =  args.c ctl_colors.c floats.c ft_printf.c integers.c output.c\
 					type_utils_2.c type_wchar.c curly.c curly_utils.c		\
 					percent.c type_cast_utils.c type_deprecated.c
 
-OBJ_TMP_NAME := $(SRC_TMP_NAME:.c=.o)
+OBJ_BASIC_NAME := $(SRC_BASIC_NAME:.c=.o)
 
 OBJ_LST_NAME := $(SRC_LST_NAME:.c=.o)
 
@@ -80,10 +80,10 @@ NAME = libft.a
 CC = gcc
 
 SRC :=	$(addprefix $(SRC_STDIO_PATH)/,$(SRC_STDIO_NAME))	\
-		$(addprefix $(SRC_TMP_PATH)/,$(SRC_TMP_NAME))		\
+		$(addprefix $(SRC_BASIC_PATH)/,$(SRC_BASIC_NAME))		\
 		$(addprefix $(SRC_LST_PATH)/,$(SRC_LST_NAME))
 
-OBJ_TMP := $(addprefix $(OBJ_PATH)/,$(OBJ_TMP_NAME))
+OBJ_BASIC := $(addprefix $(OBJ_PATH)/,$(OBJ_BASIC_NAME))
 OBJ_LST := $(addprefix $(OBJ_PATH)/,$(OBJ_LST_NAME))
 OBJ_STDIO := $(addprefix $(OBJ_PATH)/,$(OBJ_STDIO_NAME))
 
@@ -91,12 +91,12 @@ OBJ_STDIO := $(addprefix $(OBJ_PATH)/,$(OBJ_STDIO_NAME))
 
 all: $(NAME)
 
-$(NAME): $(OBJ_TMP) $(OBJ_LST) $(OBJ_STDIO)
+$(NAME): $(OBJ_BASIC) $(OBJ_LST) $(OBJ_STDIO)
 	@ar rc $@ $^
 	@ranlib $@
 	@echo "Compilation of libft.a is done"
 
-$(OBJ_PATH)/%.o: $(SRC_TMP_PATH)/%.c
+$(OBJ_PATH)/%.o: $(SRC_BASIC_PATH)/%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
 	@$(CC) $(CFLAGS) $(LIB_FLAG) $(OPTI_FLAG) -o $@ -c $<
 	@echo "Compiling libft.a: $<"
@@ -110,7 +110,7 @@ $(OBJ_PATH)/%.o: $(SRC_STDIO_PATH)/%.c
 	@echo "Compiling libft.a: $<"
 
 clean:
-	@rm -f $(OBJ_TMP) $(OBJ_LST) $(OBJ_STDIO)
+	@rm -f $(OBJ_BASIC) $(OBJ_LST) $(OBJ_STDIO)
 	@rm -rf $(OBJ_PATH)
 
 fclean: clean

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_puterr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 13:01:22 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:29:57 by abosch           ###   ########.fr       */
+/*   Created: 2019/04/10 14:46:21 by abosch            #+#    #+#             */
+/*   Updated: 2019/04/15 15:41:54 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft/basic.h"
+#include <stdlib.h>
 
-# include "ft/basic.h"
-# include "ft/list.h"
-# include "ft/stdio.h"
-
-#endif
+void	ft_puterr(const char *s, int fd)
+{
+	ft_putendl_fd(s, fd);
+	exit(1);
+}

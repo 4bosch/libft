@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 13:01:22 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:29:57 by abosch           ###   ########.fr       */
+/*   Created: 2018/11/09 17:20:59 by abosch            #+#    #+#             */
+/*   Updated: 2018/11/10 12:40:54 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft/basic.h"
 
-# include "ft/basic.h"
-# include "ft/list.h"
-# include "ft/stdio.h"
+char		*ft_strmap(const char *s, char (*f)(char))
+{
+	char	*tmp;
+	int		i;
 
-#endif
+	if (!s)
+		return (NULL);
+	if (!(tmp = ft_strnew(ft_strlen(s))))
+		return (NULL);
+	i = 0;
+	while (*s)
+		tmp[i++] = f(*s++);
+	return (tmp);
+}

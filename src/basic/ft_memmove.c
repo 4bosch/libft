@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 13:01:22 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:29:57 by abosch           ###   ########.fr       */
+/*   Created: 2018/11/08 11:03:03 by abosch            #+#    #+#             */
+/*   Updated: 2018/11/08 11:27:45 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft/basic.h"
 
-# include "ft/basic.h"
-# include "ft/list.h"
-# include "ft/stdio.h"
-
-#endif
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	if (dst == src)
+		return (dst);
+	if (src - dst > 0)
+		return (ft_memcpy(dst, src, len));
+	while (len--)
+		((unsigned char*)dst)[len] = ((unsigned char*)src)[len];
+	return (dst);
+}

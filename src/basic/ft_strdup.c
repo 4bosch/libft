@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 13:01:22 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:29:57 by abosch           ###   ########.fr       */
+/*   Created: 2018/11/08 15:11:32 by abosch            #+#    #+#             */
+/*   Updated: 2018/11/22 17:24:10 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft/basic.h"
 
-# include "ft/basic.h"
-# include "ft/list.h"
-# include "ft/stdio.h"
+char		*ft_strdup(const char *s1)
+{
+	char	*res;
+	int		i;
 
-#endif
+	if (!(res = (char*)malloc(sizeof(char) * ft_strlen(s1) + 1)))
+		return (NULL);
+	i = -1;
+	while (s1[++i] != '\0')
+		res[i] = s1[i];
+	res[i] = '\0';
+	return (res);
+}

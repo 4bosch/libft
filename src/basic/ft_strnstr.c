@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 13:01:22 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:29:57 by abosch           ###   ########.fr       */
+/*   Created: 2018/11/08 18:09:13 by abosch            #+#    #+#             */
+/*   Updated: 2018/11/09 14:29:24 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft/basic.h"
 
-# include "ft/basic.h"
-# include "ft/list.h"
-# include "ft/stdio.h"
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	size_t i;
+	size_t j;
 
-#endif
+	if (*needle == '\0')
+		return ((char*)haystack);
+	i = -1;
+	while (haystack[++i] != '\0' && i < len)
+	{
+		j = 0;
+		while (haystack[i + j] == needle[j] && haystack[i + j] != '\0'
+				&& i + j < len)
+			if (needle[++j] == '\0')
+				return ((char*)haystack + i);
+	}
+	return (NULL);
+}
