@@ -6,13 +6,13 @@
 /*   By: abaisago <adam_bai@protonmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 19:16:18 by abaisago          #+#    #+#             */
-/*   Updated: 2018/11/14 19:25:37 by abaisago         ###   ########.fr       */
+/*   Updated: 2021/12/21 20:49:16 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft/basic.h"
 
-int		ft_isprint(int c)
+int	ft_isprint(int c)
 {
 	return (c >= 32 && c <= 126);
 }

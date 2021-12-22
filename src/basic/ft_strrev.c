@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: abosch <abosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 14:57:38 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:48:09 by abosch           ###   ########.fr       */
+/*   Created: 2021/12/21 20:54:58 by abosch            #+#    #+#             */
+/*   Updated: 2021/12/21 20:58:03 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include "ft/basic.h"
+
+char	*ft_strrev(char *begin)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	char		*str_rev;
+	int			i;
+
+	i = ft_strlen(begin);
+	str_rev = ft_strnew(i);
+	if (str_rev)
+		while (*begin)
+			str_rev[--i] = *begin++;
+	return (str_rev);
 }

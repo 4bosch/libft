@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:31:07 by abosch            #+#    #+#             */
-/*   Updated: 2018/11/14 15:28:27 by abosch           ###   ########.fr       */
+/*   Updated: 2021/12/21 20:45:44 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	is_skipchar(char c)
 	return (0);
 }
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int			is_neg;
 	long long	res;
@@ -40,7 +40,9 @@ int			ft_atoi(const char *str)
 		res *= 10;
 		res += *str++ - 48;
 	}
-	if (res < 0)
-		return (is_neg == 1 ? -1 : 0);
+	if (res < 0 && is_neg == 1)
+		return (-1);
+	else if (res < 0 && is_neg != 1)
+		return (0);
 	return (res * is_neg);
 }

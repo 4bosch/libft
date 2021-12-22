@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 15:43:55 by abosch            #+#    #+#             */
-/*   Updated: 2019/04/15 15:43:56 by abosch           ###   ########.fr       */
+/*   Updated: 2021/12/21 20:43:27 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** outputs 1 if it has changed, 0 otherwise.
 */
 
-int		ft_abs(intmax_t *n)
+int	ft_abs(intmax_t *n)
 {
 	if (*n < 0)
 	{

@@ -6,7 +6,7 @@
 #    By: abosch <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 13:36:55 by abosch            #+#    #+#              #
-#    Updated: 2021/12/21 20:12:35 by abosch           ###   ########.fr        #
+#    Updated: 2021/12/21 20:58:35 by abosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ SRC_BASIC_NAME =	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c\
 			ft_strsplit.c ft_itoa.c	ft_putchar.c ft_putstr.c ft_putendl.c	\
 			ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c		\
 			ft_putnbr_fd.c ft_strjoin_free_d.c								\
-			get_next_line.c	ft_atoll.c										\
+			get_next_line.c	ft_atoll.c	ft_strrev.c							\
 			ft_isblank.c ft_isspace.c ft_abs.c ft_count_digits.c			\
 			ft_getnbr_base.c ft_isprint.c ft_llitoa.c ft_llitoa_base.c		\
 			ft_llitosa_base.c ft_lluitoa.c ft_lluitoa_base.c			 	\

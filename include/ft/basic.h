@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 13:15:41 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:13:36 by abosch           ###   ########.fr       */
+/*   Updated: 2021/12/21 20:57:57 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ char			*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
 char			*ft_strsub(const char *s, unsigned int start, size_t len);
+char			*ft_strrev(char *begin);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strjoin_free(char const *s1, char const *s2,
 											char c);

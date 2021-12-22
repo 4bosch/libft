@@ -6,26 +6,13 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:42:49 by abosch            #+#    #+#             */
-/*   Updated: 2018/11/15 17:04:01 by abosch           ###   ########.fr       */
+/*   Updated: 2021/12/22 02:23:06 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft/basic.h"
 
-static char		*ft_strrev(char *begin)
-{
-	char		*str_rev;
-	int			i;
-
-	i = ft_strlen(begin);
-	if (!(str_rev = ft_strnew(i)))
-		return (NULL);
-	while (*begin)
-		str_rev[--i] = *begin++;
-	return (str_rev);
-}
-
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char		*str;
 	int			size;
@@ -35,7 +22,8 @@ char			*ft_itoa(int n)
 	tmp = n;
 	while (n /= 10)
 		size++;
-	if (!(str = ft_strnew(size)))
+	str = ft_strnew(size);
+	if (!(str))
 		return (NULL);
 	if (tmp < 0)
 	{

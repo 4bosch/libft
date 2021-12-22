@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:54:30 by abosch            #+#    #+#             */
-/*   Updated: 2018/11/09 15:03:34 by abosch           ###   ########.fr       */
+/*   Updated: 2021/12/21 20:47:14 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int	ft_isalnum(int c)
 {
-	return ((ft_isdigit(c) || ft_isalpha(c)) ? 1 : 0);
+	if (ft_isdigit(c) || ft_isalpha(c))
+		return (1);
+	return (0);
 }
