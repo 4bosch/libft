@@ -6,21 +6,31 @@
 /*   By: abosch <abosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 20:54:58 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:58:03 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/07 13:44:46 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft/basic.h"
 
-char	*ft_strrev(char *begin)
+static void	swapchar(char *a, char *b)
 {
-	char		*str_rev;
-	int			i;
+	char	tmp;
 
-	i = ft_strlen(begin);
-	str_rev = ft_strnew(i);
-	if (str_rev)
-		while (*begin)
-			str_rev[--i] = *begin++;
-	return (str_rev);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+char	*ft_strrev(char *str)
+{
+	int	i;
+	int	j;
+	int	len;
+
+	len = ft_strlen(str);
+	i = 0;
+	j = len - 1;
+	while (i < len / 2)
+		swapchar(&str[i++], &str[j--]);
+	return (str);
 }

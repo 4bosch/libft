@@ -6,11 +6,11 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 13:15:41 by abosch            #+#    #+#             */
-/*   Updated: 2021/12/21 20:57:57 by abosch           ###   ########.fr       */
+/*   Updated: 2021/12/29 12:53:27 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	BASIC_H
+#ifndef BASIC_H
 # define BASIC_H
 
 /*
@@ -54,7 +54,7 @@ char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strstr(const char *haystack, const char *needle);
 char			*ft_strnstr(const char *haystack, const char *needle,
-								size_t len);
+					size_t len);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *str);
@@ -82,7 +82,7 @@ char			*ft_strsub(const char *s, unsigned int start, size_t len);
 char			*ft_strrev(char *begin);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strjoin_free(char const *s1, char const *s2,
-											char c);
+					char c);
 char			*ft_strjoin_free_d(char const *s1, char const *s2, char d);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
@@ -104,7 +104,7 @@ int				get_next_line(const int fd, char **line);
 int				ft_abs(intmax_t *n);
 size_t			ft_count_digits(intmax_t n, uint8_t base);
 void			ft_getnbr_base(size_t value, uint8_t base, char *str,
-								size_t *index);
+					size_t *index);
 int				ft_isprint(int c);
 char			*ft_llitoa(int64_t n);
 char			*ft_llitoa_base(int64_t value, uint8_t base);
@@ -124,10 +124,10 @@ size_t			ft_wstr_utfelen(wchar_t *str);
 int8_t			ft_strmatch(char *match, char *str);
 size_t			ft_wstrlen(wchar_t *str);
 
-int				ft_printf(const char *restrict fmt, ...);
+int				ft_printf(const char *fmt, ...);
 void			ft_printerr(const char *fmt, ...);
 
-typedef struct	s_string
+typedef struct s_string
 {
 	char		*str;
 	int			len;

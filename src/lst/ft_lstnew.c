@@ -6,11 +6,11 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 16:48:16 by abosch            #+#    #+#             */
-/*   Updated: 2019/04/12 15:21:58 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/11 12:45:19 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/tmp.h"
+#include "ft/basic.h"
 #include "ft/list.h"
 
 t_list		*ft_lstnew(void const *content, size_t content_size)
