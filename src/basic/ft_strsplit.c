@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 15:27:29 by abosch            #+#    #+#             */
-/*   Updated: 2018/11/14 19:00:57 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/11 14:30:55 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,17 @@ static char	*storedata(char *s, char sep, int word_len)
 	char	*tmp;
 
 	i = -1;
-	if (!(tmp = ft_strnew(word_len)))
-		return (NULL);
-	while (s[++i] != '\0' && !is_separator(s[i], sep))
-		tmp[i] = s[i];
-	tmp[i] = '\0';
+	tmp = ft_strnew(word_len);
+	if (tmp != NULL)
+	{
+		while (s[++i] != '\0' && !is_separator(s[i], sep))
+			tmp[i] = s[i];
+		tmp[i] = '\0';
+	}
 	return (tmp);
 }
 
-char		**ft_strsplit(char const *s, char c)
+char	**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
 	int		nb_word;
@@ -71,8 +73,9 @@ char		**ft_strsplit(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	nb_word = countword((char*)s, c);
-	if (!(tab = (char**)(malloc(sizeof(char*) * (nb_word + 1)))))
+	nb_word = countword((char *)s, c);
+	tab = (char **)(malloc(sizeof(char *) * (nb_word + 1)));
+	if (tab == NULL)
 		return (NULL);
 	i = -1;
 	cnt = 0;
@@ -80,8 +83,8 @@ char		**ft_strsplit(char const *s, char c)
 	{
 		while (is_separator(s[i], c))
 			i++;
-		word_len = wordlen((char*)(s + i), c);
-		tab[cnt] = storedata((char*)(s + i), c, word_len);
+		word_len = wordlen((char *)(s + i), c);
+		tab[cnt] = storedata((char *)(s + i), c, word_len);
 		i += word_len - 1;
 		cnt++;
 	}

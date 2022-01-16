@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:20:33 by abosch            #+#    #+#             */
-/*   Updated: 2018/11/09 11:05:40 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/11 14:13:04 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	i = ft_strlen(s1);
 	j = -1;

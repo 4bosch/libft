@@ -6,7 +6,7 @@
 /*   By: abaisago <adam_bai@protonmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/15 21:38:32 by abaisago          #+#    #+#             */
-/*   Updated: 2019/03/30 02:46:12 by abaisago         ###   ########.fr       */
+/*   Updated: 2022/01/11 14:40:01 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 #include <wchar.h>
 
 /*
-** 110XXXXX 10XXXXXX
-*/
+ ** 110XXXXX 10XXXXXX
+ */
 
-static void		wchar_two(char **str, wchar_t c)
+static void	wchar_two(char **str, wchar_t c)
 {
-	uint8_t byte;
+	uint8_t	byte;
 
 	byte = 192 + ((c & 1984) >> 6);
 	(*str)[0] = byte;
@@ -32,12 +32,12 @@ static void		wchar_two(char **str, wchar_t c)
 }
 
 /*
-** 1110XXXX 10XXXXXX 10XXXXXX
-*/
+ ** 1110XXXX 10XXXXXX 10XXXXXX
+ */
 
-static void		wchar_three(char **str, wchar_t c)
+static void	wchar_three(char **str, wchar_t c)
 {
-	uint8_t byte;
+	uint8_t	byte;
 
 	byte = 224 + ((c & 64440) >> 12);
 	(*str)[0] = byte;
@@ -49,12 +49,12 @@ static void		wchar_three(char **str, wchar_t c)
 }
 
 /*
-** 11110XXX 10XXXXXX 10XXXXXX 10XXXXXX
-*/
+ ** 11110XXX 10XXXXXX 10XXXXXX 10XXXXXX
+ */
 
-static void		wchar_four(char **str, wchar_t c)
+static void	wchar_four(char **str, wchar_t c)
 {
-	uint8_t byte;
+	uint8_t	byte;
 
 	byte = 240 + ((c & 917504) >> 18);
 	(*str)[0] = byte;
@@ -68,30 +68,32 @@ static void		wchar_four(char **str, wchar_t c)
 }
 
 /*
-** Converts a wchar character into a newly
-** allocated UTF-8 encoded string.
-** Returns the new string.
-*/
+ ** Converts a wchar character into a newly
+ ** allocated UTF-8 encoded string.
+ ** Returns the new string.
+ */
 
-char			*ft_wchar_utfe(wchar_t c)
+char	*ft_wchar_utfe(wchar_t c)
 {
 	char	*res;
 	uint8_t	utfe_len;
 
 	utfe_len = ft_wchar_utfelen(c);
-	if ((res = ft_strnew(utfe_len)) == NULL)
-		return (NULL);
-	if (c < 127)
+	res = ft_strnew(utfe_len);
+	if (res != NULL)
 	{
-		*res = c;
-		++res;
+		if (c < 127)
+		{
+			*res = c;
+			++res;
+		}
+		else if (c < 2048)
+			wchar_two(&res, c);
+		else if (c < 65536)
+			wchar_three(&res, c);
+		else
+			wchar_four(&res, c);
+		res -= utfe_len;
 	}
-	else if (c < 2048)
-		wchar_two(&res, c);
-	else if (c < 65536)
-		wchar_three(&res, c);
-	else
-		wchar_four(&res, c);
-	res -= utfe_len;
 	return (res);
 }

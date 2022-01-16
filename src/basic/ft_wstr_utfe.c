@@ -6,7 +6,7 @@
 /*   By: abaisago <adam_bai@protonmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/15 21:38:32 by abaisago          #+#    #+#             */
-/*   Updated: 2019/03/30 02:47:43 by abaisago         ###   ########.fr       */
+/*   Updated: 2022/01/11 14:42:46 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 #include <wchar.h>
 
 /*
-** 110XXXXX 10XXXXXX
-*/
+ ** 110XXXXX 10XXXXXX
+ */
 
-static void		wchar_two(char **str, wchar_t c)
+static void	wchar_two(char **str, wchar_t c)
 {
 	uint8_t	byte;
 
@@ -32,10 +32,10 @@ static void		wchar_two(char **str, wchar_t c)
 }
 
 /*
-** 1110XXXX 10XXXXXX 10XXXXXX
-*/
+ ** 1110XXXX 10XXXXXX 10XXXXXX
+ */
 
-static void		wchar_three(char **str, wchar_t c)
+static void	wchar_three(char **str, wchar_t c)
 {
 	uint8_t	byte;
 
@@ -49,10 +49,10 @@ static void		wchar_three(char **str, wchar_t c)
 }
 
 /*
-** 11110XXX 10XXXXXX 10XXXXXX 10XXXXXX
-*/
+ ** 11110XXX 10XXXXXX 10XXXXXX 10XXXXXX
+ */
 
-static void		wchar_four(char **str, wchar_t c)
+static void	wchar_four(char **str, wchar_t c)
 {
 	uint8_t	byte;
 
@@ -68,18 +68,19 @@ static void		wchar_four(char **str, wchar_t c)
 }
 
 /*
-** Converts a wchar string into a newly
-** allocated UTF-8 encoded string.
-** Returns the new string.
-*/
+ ** Converts a wchar string into a newly
+ ** allocated UTF-8 encoded string.
+ ** Returns the new string.
+ */
 
-char			*ft_wstr_utfe(wchar_t *str)
+char	*ft_wstr_utfe(wchar_t *str)
 {
 	char	*res;
 	size_t	utfe_len;
 
 	utfe_len = ft_wstr_utfelen(str);
-	if ((res = ft_strnew(utfe_len)) == NULL)
+	res = ft_strnew(utfe_len);
+	if (res == NULL)
 		return (NULL);
 	while (*str != '\0')
 	{

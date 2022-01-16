@@ -6,7 +6,7 @@
 /*   By: abaisago <adam_bai@protonmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 17:47:22 by abaisago          #+#    #+#             */
-/*   Updated: 2018/11/09 17:56:39 by abaisago         ###   ########.fr       */
+/*   Updated: 2022/01/11 14:27:23 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 char	*ft_strnew(size_t size)
 {
-	return ((char*)ft_memalloc(size + 1));
+	return ((char *)ft_memalloc(size + 1));
 }

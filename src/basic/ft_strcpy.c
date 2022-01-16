@@ -6,13 +6,13 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:25:03 by abosch            #+#    #+#             */
-/*   Updated: 2018/11/22 17:20:56 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/11 14:13:50 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (src[++i] != '\0')

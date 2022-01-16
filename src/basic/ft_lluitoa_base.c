@@ -6,7 +6,7 @@
 /*   By: abaisago <adam_bai@protonmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:49:11 by abaisago          #+#    #+#             */
-/*   Updated: 2019/03/11 16:35:22 by abaisago         ###   ########.fr       */
+/*   Updated: 2022/01/11 13:58:08 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 ** 64-bii unsigned integer in a specified base of up to 36.
 */
 
-char			*ft_lluitoa_base(uint64_t value, uint8_t base)
+char	*ft_lluitoa_base(uint64_t value, uint8_t base)
 {
 	size_t		i;
 	char		*res;
 
-	res = (char*)malloc(sizeof(*res) * (ft_count_udigits(value, base) + 1));
+	res = (char *)malloc(sizeof(*res) * (ft_count_udigits(value, base) + 1));
 	i = 0;
 	ft_getnbr_base(value, base, res, &i);
 	res[i] = '\0';

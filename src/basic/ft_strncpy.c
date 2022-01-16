@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:30:46 by abosch            #+#    #+#             */
-/*   Updated: 2018/11/20 17:07:41 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/11 14:27:02 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	size_t i;
+	size_t	i;
 
 	i = -1;
 	while (++i < len && src[i] != '\0')

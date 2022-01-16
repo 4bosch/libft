@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 15:14:49 by abosch            #+#    #+#             */
-/*   Updated: 2018/11/10 12:32:58 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/11 14:03:38 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memalloc(size_t size)
 {
-	void *tmp;
+	void	*tmp;
 
-	if (!(tmp = malloc(size)))
-		return (NULL);
-	ft_bzero(tmp, size);
+	tmp = malloc(size);
+	if (tmp != NULL)
+		ft_bzero(tmp, size);
 	return (tmp);
 }

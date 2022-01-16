@@ -1,41 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/10 15:10:18 by abosch            #+#    #+#             */
-/*   Updated: 2022/01/11 14:35:09 by abosch           ###   ########.fr       */
+/*   Created: 2018/11/14 14:42:49 by abosch            #+#    #+#             */
+/*   Updated: 2021/12/28 13:10:28 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft/basic.h"
 
-char	*ft_strtrim(char const *s)
+static int	itoa_helper(char *str, long num)
 {
-	char	*res;
-	int		begin;
-	int		end;
-	int		i;
+	int	i;
 
-	if (!s)
-		return (NULL);
-	begin = -1;
-	end = ft_strlen(s);
-	while (ft_isblank(s[++begin]) || s[begin] == '\n')
-		;
-	while (ft_isblank(s[--end]) || s[end] == '\n')
-		;
 	i = 0;
-	if (end < begin)
-		res = ft_strnew(1);
-	else
-		res = ft_strnew(1 + end - begin);
-	if (res == NULL)
+	while (num)
+	{
+		str[i++] = (num % 10) + '0';
+		num /= 10;
+	}
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	char		*str;
+	int			size;
+	long int	tmp;
+
+	size = 1;
+	tmp = n;
+	while (n)
+	{
+		size++;
+		n /= 10;
+	}
+	str = ft_strnew(size);
+	if (!(str))
 		return (NULL);
-	while (begin <= end)
-		res[i++] = s[begin++];
-	res[i] = '\0';
-	return (res);
+	if (tmp < 0)
+	{
+		str[size] = '-';
+		tmp = -tmp;
+	}
+	n = itoa_helper(str, tmp);
+	if (n != size)
+		str[n++] = '0';
+	return (ft_strrev(str));
 }

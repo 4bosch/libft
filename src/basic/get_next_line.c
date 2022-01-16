@@ -6,13 +6,13 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 14:46:03 by abosch            #+#    #+#             */
-/*   Updated: 2019/04/09 17:10:54 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/16 17:53:12 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft/basic.h"
 
-static int		get_line(char **line, char **s)
+static int	get_line(char **line, char **s)
 {
 	if (!ft_strlen(*s))
 	{
@@ -21,19 +21,24 @@ static int		get_line(char **line, char **s)
 	}
 	if (ft_strchr(*s, '\n'))
 	{
-		if (!(*line = ft_strsub(*s, 0, ft_strlen(*s) -
-						ft_strlen(ft_strchr(*s, '\n')))))
+		*line = ft_strsub(*s, 0, ft_strlen(*s)
+				- ft_strlen(ft_strchr(*s, '\n')));
+		if (*line == NULL)
 			return (-1);
 		ft_strcpy(*s, ft_strchr(*s, '\n') + 1);
 		return (1);
 	}
-	else if (!(*line = ft_strdup(*s)))
-		return (-1);
+	else
+	{
+		*line = ft_strdup(*s);
+		if (*line == NULL)
+			return (-1);
+	}
 	ft_strdel(s);
 	return (1);
 }
 
-int				get_next_line(const int fd, char **line)
+int	get_next_line(const int fd, char **line)
 {
 	char		buf[BUF_SIZE + 1];
 	int			ret;
