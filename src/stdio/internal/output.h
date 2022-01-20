@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 15:48:45 by abosch            #+#    #+#             */
-/*   Updated: 2019/04/19 15:17:03 by abaisago         ###   ########.fr       */
+/*   Updated: 2022/01/20 20:21:07 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "ft_printf.h"
 # include <string.h>
 
-typedef struct		s_buf
+typedef struct s_buf
 {
 	int				fd;
 	int				read;

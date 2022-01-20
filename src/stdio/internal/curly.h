@@ -6,7 +6,7 @@
 /*   By: abaisago <adam_bai@protonmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 16:29:30 by abaisago          #+#    #+#             */
-/*   Updated: 2019/03/28 17:32:40 by abaisago         ###   ########.fr       */
+/*   Updated: 2022/01/20 20:16:14 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "output.h"
 # include <stdint.h>
 
-typedef struct		s_escseq
+typedef struct s_escseq
 {
 	int16_t			code;
 	uint8_t			arg;
@@ -24,13 +24,13 @@ typedef struct		s_escseq
 
 typedef void		(*t_escfunc)(t_escseq*, char**, t_buf*);
 
-typedef struct		s_ctltab
+typedef struct s_ctltab
 {
 	char			type;
 	t_escfunc		func;
 }					t_ctltab;
 
-typedef struct		s_base_colors
+typedef struct s_base_colors
 {
 	char			*str;
 	int8_t			code;
@@ -42,7 +42,7 @@ void				ctl_reset(t_escseq *seq, char **str, t_buf *buf);
 
 void				curly(char **str, t_buf *buf);
 void				write_curly(t_escseq *seq, t_string *res,
-								char **str, t_buf *buf);
+						char **str, t_buf *buf);
 
 /*
 ** CURLY.H

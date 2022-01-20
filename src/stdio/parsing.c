@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 12:52:01 by abosch            #+#    #+#             */
-/*   Updated: 2020/02/20 12:52:05 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:28:37 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include <unistd.h>
 
-static void		choose(va_list og, va_list ap, char **fmt, t_buf *buf)
+static void	choose(va_list og, va_list ap, char **fmt, t_buf *buf)
 {
 	if (**fmt == '%')
 		percent(og, ap, fmt, buf);
@@ -31,7 +31,7 @@ static void		choose(va_list og, va_list ap, char **fmt, t_buf *buf)
 		curly(fmt, buf);
 }
 
-int				parsing(int fd, char *fmt, va_list ap)
+int	parsing(int fd, char *fmt, va_list ap)
 {
 	va_list		og;
 	t_buf		buf;

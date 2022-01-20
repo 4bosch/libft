@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 12:52:39 by abosch            #+#    #+#             */
-/*   Updated: 2020/02/20 12:52:40 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:23:04 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	type_f(va_list ap, t_spec *spec, t_buf *buf)
 	nbr = va_arg(ap, double);
 	if (!(spec->flags & F_PRECI))
 		spec->precision = 6;
-	if ((conv.str = ftoa(nbr, spec->precision)) == NULL)
+	conv.str = ftoa(nbr, spec->precision);
+	if (conv.str == NULL)
 		conv.str = ft_strcpy(err, "(-1)");
 	else if (spec->flags & F_QUOTE)
 		conv.str = nbr_grouping(&conv, ',', 3);
@@ -58,7 +59,8 @@ void	type_ff(va_list ap, t_spec *spec, t_buf *buf)
 	nbr = va_arg(ap, long double);
 	if (!(spec->flags & F_PRECI))
 		spec->precision = 6;
-	if ((conv.str = ftoa(nbr, spec->precision)) == NULL)
+	conv.str = ftoa(nbr, spec->precision);
+	if (conv.str == NULL)
 		conv.str = ft_strcpy(err, "(-1)");
 	else if (spec->flags & F_QUOTE)
 		conv.str = nbr_grouping(&conv, ',', 3);

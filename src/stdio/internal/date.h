@@ -6,14 +6,14 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 12:22:14 by abosch            #+#    #+#             */
-/*   Updated: 2019/03/19 12:23:13 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:20:30 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATE_H
 # define DATE_H
 
-typedef struct	s_date
+typedef struct s_date
 {
 	int	year;
 	int	month;

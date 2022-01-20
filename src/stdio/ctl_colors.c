@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 13:25:25 by abosch            #+#    #+#             */
-/*   Updated: 2020/02/20 13:26:53 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:47:07 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 #include <string.h>
 
-static t_base_colors g_colors[] =
-{
-	{"black", 30},
-	{"red", 31},
-	{"green", 32},
-	{"yellow", 33},
-	{"blue", 34},
-	{"magenta", 35},
-	{"cyan", 36},
-	{"white", 37},
-	{0, -1}
+static t_base_colors	g_colors[]
+	= {
+{"black", 30},
+{"red", 31},
+{"green", 32},
+{"yellow", 33},
+{"blue", 34},
+{"magenta", 35},
+{"cyan", 36},
+{"white", 37},
+{0, -1}
 };
 
 /*
@@ -108,7 +108,7 @@ static int8_t	get_color_num(t_escseq *seq, int8_t gd, char **str, char *tab)
 	return (i + 5);
 }
 
-void			ctl_colors(t_escseq *seq, char **str, t_buf *buf)
+void	ctl_colors(t_escseq *seq, char **str, t_buf *buf)
 {
 	t_string	res;
 	char		tab[18];
@@ -116,7 +116,10 @@ void			ctl_colors(t_escseq *seq, char **str, t_buf *buf)
 	size_t		i;
 
 	tab[0] = '[';
-	ground = (**str == 'b') ? 10 : 0;
+	if (**str == 'b')
+		ground = 10;
+	else
+		ground = 0;
 	(*str)++;
 	i = 1;
 	if (ft_isalpha(**str))

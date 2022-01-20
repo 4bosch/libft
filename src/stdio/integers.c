@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 12:51:56 by abosch            #+#    #+#             */
-/*   Updated: 2020/02/20 12:51:58 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:37:58 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <stdlib.h>
 
-int		get_number(char **str)
+int	get_number(char **str)
 {
 	int		nbr;
 
@@ -31,6 +31,17 @@ int		get_number(char **str)
 	return (nbr);
 }
 
+static void	nbr_grouping_begin(t_string *conv, size_t *i, int *nsep, int size)
+{
+	*i = 0;
+	while (conv->str[*i] != '.' && conv->str[*i] != '\0')
+		*i += 1;
+	if ((*i / (float)size) > (*i / size))
+		*nsep = *i / size;
+	else
+		*nsep = *i / size - 1;
+}
+
 char	*nbr_grouping(t_string *conv, char sep, unsigned int size)
 {
 	char	*new;
@@ -38,11 +49,9 @@ char	*nbr_grouping(t_string *conv, char sep, unsigned int size)
 	size_t	j;
 	int		nsep;
 
-	i = 0;
-	while (conv->str[i] != '.' && conv->str[i] != '\0')
-		++i;
-	nsep = ((i / (float)size) > (i / size)) ? i / size : i / size - 1;
-	if ((new = ft_strnew(conv->len + nsep)) == NULL)
+	nbr_grouping_begin(conv, &i, &nsep, size);
+	new = ft_strnew(conv->len + nsep);
+	if (new == NULL)
 		return (NULL);
 	ft_strcpy(new + i + nsep, conv->str + i);
 	j = 0;

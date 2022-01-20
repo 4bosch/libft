@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 12:52:50 by abosch            #+#    #+#             */
-/*   Updated: 2020/02/20 12:52:56 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:23:40 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	type_ss(va_list ap, t_spec *spec, t_buf *buf)
 	wchar_t		*wide;
 	char		null[7];
 
-	wide = va_arg(ap, wchar_t*);
+	wide = va_arg(ap, wchar_t *);
 	if (wide == NULL)
 		conv.str = ft_strcpy(null, "(null)");
 	else

@@ -6,19 +6,19 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 14:19:33 by abosch            #+#    #+#             */
-/*   Updated: 2019/11/08 14:25:56 by abaisago         ###   ########.fr       */
+/*   Updated: 2022/01/20 20:38:36 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal/parsing.h"
 #include <stdarg.h>
 
-int		ft_vdprintf(int fd, const char *fmt, va_list ap)
+int	ft_vdprintf(int fd, const char *fmt, va_list ap)
 {
-	return (parsing(fd, (char*)fmt, ap));
+	return (parsing(fd, (char *)fmt, ap));
 }
 
-int		ft_dprintf(int fd, const char *fmt, ...)
+int	ft_dprintf(int fd, const char *fmt, ...)
 {
 	va_list	ap;
 	int		ret;
@@ -29,7 +29,7 @@ int		ft_dprintf(int fd, const char *fmt, ...)
 	return (ret);
 }
 
-int		ft_printf(const char *fmt, ...)
+int	ft_printf(const char *fmt, ...)
 {
 	va_list	ap;
 	int		ret;

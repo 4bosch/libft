@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 12:52:29 by abosch            #+#    #+#             */
-/*   Updated: 2020/03/12 16:43:47 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:25:13 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	type_s(va_list ap, t_spec *spec, t_buf *buf)
 		type_ss(ap, spec, buf);
 		return ;
 	}
-	conv.str = va_arg(ap, char*);
+	conv.str = va_arg(ap, char *);
 	if (conv.str == NULL)
 		conv.str = ft_strcpy(null, "(null)");
 	conv.len = ft_strlen(conv.str);
@@ -64,7 +64,7 @@ void	type_r(va_list ap, t_spec *spec, t_buf *buf)
 	t_string	conv;
 	char		null[7];
 
-	new = va_arg(ap, char*);
+	new = va_arg(ap, char *);
 	if (new == NULL)
 		conv.str = ft_strcpy(null, "(null)");
 	else
@@ -87,7 +87,7 @@ void	type_p(va_list ap, t_spec *spec, t_buf *buf)
 	char		prefix[3];
 	void		*ptr;
 
-	ptr = va_arg(ap, void*);
+	ptr = va_arg(ap, void *);
 	conv.str = ft_lluitosa_base((size_t)ptr, 16, str);
 	conv.len = ft_strlen(conv.str);
 	spec->flags &= ~(F_PLUS | F_BLANK);

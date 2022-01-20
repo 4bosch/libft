@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 12:51:06 by abosch            #+#    #+#             */
-/*   Updated: 2020/02/20 12:51:07 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:48:11 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@
 
 #include <stdint.h>
 
-static void			ctl_default(t_escseq *seq, char **str, t_buf *buf)
+static void	ctl_default(t_escseq *seq, char **str, t_buf *buf)
 {
 	seq->code = -1;
 	write_curly(seq, 0, str, buf);
 }
 
-static t_ctltab	g_ctltab[] =
-{
-	{'f', &ctl_colors},
-	{'b', &ctl_colors},
-	{'m', &ctl_sgr_code},
-	{'r', &ctl_reset},
-	{'}', &ctl_reset},
-	{0, &ctl_default}
+static t_ctltab	g_ctltab[]
+	= {
+{'f', &ctl_colors},
+{'b', &ctl_colors},
+{'m', &ctl_sgr_code},
+{'r', &ctl_reset},
+{'}', &ctl_reset},
+{0, &ctl_default}
 };
 
 static t_escfunc	get_escape_funciton(char c)
@@ -44,7 +44,7 @@ static t_escfunc	get_escape_funciton(char c)
 	return (g_ctltab[i].func);
 }
 
-void				curly(char **str, t_buf *buf)
+void	curly(char **str, t_buf *buf)
 {
 	t_escfunc	function;
 	t_escseq	seq;
@@ -56,7 +56,7 @@ void				curly(char **str, t_buf *buf)
 		function(&seq, str, buf);
 }
 
-void				write_curly(t_escseq *seq, t_string *res,
+void	write_curly(t_escseq *seq, t_string *res,
 								char **str, t_buf *buf)
 {
 	if (**str != '}')

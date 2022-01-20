@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 12:52:14 by abosch            #+#    #+#             */
-/*   Updated: 2020/02/20 12:52:15 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:26:08 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 void	get_spec_flags(t_spec *spec, char **str)
 {
 	while (**str == '-' || **str == '+' || **str == '0' || **str == ' '
-			|| **str == '#' || **str == '\'')
+		|| **str == '#' || **str == '\'')
 	{
 		if (**str == '-')
 			spec->flags |= F_MINUS;
@@ -101,6 +101,7 @@ void	get_specifier(t_spec *spec, char **str, va_list ap)
 		if (spec->precision < 0)
 			spec->flags &= ~F_PRECI;
 	}
-	if ((spec->size = get_spec_size_two(str, spec->size)) == 0)
+	spec->size = get_spec_size_two(str, spec->size);
+	if (spec->size == 0)
 		spec->size = get_spec_size_one(str, spec->size);
 }

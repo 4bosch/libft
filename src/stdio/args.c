@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 12:49:58 by abosch            #+#    #+#             */
-/*   Updated: 2020/02/20 12:49:59 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:43:01 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string.h>
 #include <stdint.h>
 
-int		get_star(va_list ap, char **str)
+int	get_star(va_list ap, char **str)
 {
 	int		nbr;
 
@@ -26,7 +26,7 @@ int		get_star(va_list ap, char **str)
 	return (nbr);
 }
 
-int		switch_number_star(va_list ap, char **str)
+int	switch_number_star(va_list ap, char **str)
 {
 	if (**str == '*')
 		return (get_star(ap, str));
@@ -46,7 +46,7 @@ void	get_arg(va_list og, va_list ap, char **str)
 		(*str)++;
 		va_copy(ap, og);
 		while (n-- > 1)
-			va_arg(ap, void*);
+			va_arg(ap, void *);
 	}
 	else
 		*str = bak;

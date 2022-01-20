@@ -6,7 +6,7 @@
 /*   By: abaisago <adam_bai@protonmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 20:26:35 by abaisago          #+#    #+#             */
-/*   Updated: 2019/03/19 18:09:24 by abaisago         ###   ########.fr       */
+/*   Updated: 2022/01/20 20:17:20 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@
 # define SIZE_J		5
 # define SIZE_Z		6
 
-typedef struct		s_buf
+typedef struct s_buf
 {
 	int				read;
 	int				index;
 	char			data[BUFF_SIZE];
 }					t_buf;
 
-typedef struct		s_spec
+typedef struct s_spec
 {
 	char			flags;
 	char			size;
@@ -53,7 +53,7 @@ typedef struct		s_spec
 	int				precision;
 }					t_spec;
 
-typedef struct		s_string
+typedef struct s_string
 {
 	char			*str;
 	int				len;
@@ -61,7 +61,7 @@ typedef struct		s_string
 
 typedef void		(*t_func)(va_list ap, t_spec *, t_buf *);
 
-typedef struct		s_typefunc
+typedef struct s_typefunc
 {
 	char			type;
 	t_func			func;

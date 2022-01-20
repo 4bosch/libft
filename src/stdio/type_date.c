@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 12:52:34 by abosch            #+#    #+#             */
-/*   Updated: 2020/02/20 12:52:35 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:24:40 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 #include <stdlib.h>
 
-static char		*get_date(t_date date, char *iso)
+static char	*get_date(t_date date, char *iso)
 {
-	char year[5];
-	char month[3];
-	char day[3];
+	char	year[5];
+	char	month[3];
+	char	day[3];
 
 	ft_llitosa_base(date.year, 10, year);
 	ft_llitosa_base(date.month, 10, month);
@@ -36,7 +36,7 @@ static char		*get_date(t_date date, char *iso)
 	return (iso);
 }
 
-void			type_k(va_list ap, t_spec *spec, t_buf *buf)
+void	type_k(va_list ap, t_spec *spec, t_buf *buf)
 {
 	char		*iso;
 	t_string	conv;
@@ -47,7 +47,8 @@ void			type_k(va_list ap, t_spec *spec, t_buf *buf)
 	date.day = va_arg(ap, unsigned int);
 	if (date.year > 9999 || date.month > 12 || date.day > 31)
 		return ;
-	if ((iso = ft_strnew(10)) == NULL)
+	iso = ft_strnew(10);
+	if (iso == NULL)
 		return ;
 	conv.str = get_date(date, iso);
 	conv.len = 10;

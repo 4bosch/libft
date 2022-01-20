@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 12:51:18 by abosch            #+#    #+#             */
-/*   Updated: 2020/02/20 12:51:20 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:41:05 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ char	*get_decimal(long double nbr, unsigned int precision, size_t size)
 
 	if (precision > size)
 		size = precision;
-	if ((res = ft_strnew(size)) == NULL)
+	res = ft_strnew(size);
+	if (res == NULL)
 		return (NULL);
 	i = 0;
 	while (i < size)
@@ -88,7 +89,8 @@ char	*round_float(char *str, unsigned int precision)
 		if (i < 0)
 		{
 			str[0] = '0';
-			if ((str = ft_strjoin_free("1", str, 'r')) == NULL)
+			str = ft_strjoin_free("1", str, 'r');
+			if (str == NULL)
 				return (NULL);
 		}
 		else
@@ -106,12 +108,15 @@ char	*ftoa(long double nbr, unsigned int precision)
 	nbr -= whole;
 	if (nbr < 0)
 		nbr = -nbr;
-	if ((res = ft_llitoa(whole)) == NULL)
+	res = ft_llitoa(whole);
+	if (res == NULL)
 		return (NULL);
-	if ((res = ft_strjoin_free(res, ".", 'l')) == NULL)
+	res = ft_strjoin_free(res, ".", 'l');
+	if (res == NULL)
 		return (NULL);
-	if ((res = ft_strjoin_free(res,
-				get_decimal(nbr, precision, count_decimal(nbr)), 'b')) == NULL)
+	res = ft_strjoin_free(res,
+			get_decimal(nbr, precision, count_decimal(nbr)), 'b');
+	if (res == NULL)
 		return (NULL);
 	res = round_float(res, precision);
 	return (res);
