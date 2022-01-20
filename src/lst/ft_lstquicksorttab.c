@@ -6,7 +6,7 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 16:20:09 by abosch            #+#    #+#             */
-/*   Updated: 2022/01/11 12:46:22 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/16 18:00:25 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static t_list	**lst2tab(t_list *lst)
 	t_list	**tab;
 	int		i;
 
-	if (!(tab = (t_list**)malloc(ft_lstlen(lst) * (sizeof(t_list*) + 1))))
+	tab = (t_list **)malloc(ft_lstlen(lst) * (sizeof(t_list *) + 1));
+	if (tab == NULL)
 		ft_puterr("Malloc failed in ft_lstquicksort.c:24\n", 2);
 	i = 0;
 	while (lst != NULL)
@@ -30,7 +31,7 @@ static t_list	**lst2tab(t_list *lst)
 	return (tab);
 }
 
-static void		swap(t_list *e1, t_list *e2)
+static void	swap(t_list *e1, t_list *e2)
 {
 	t_list	tmp;
 
@@ -39,7 +40,7 @@ static void		swap(t_list *e1, t_list *e2)
 	*e2 = tmp;
 }
 
-static int		partition(t_list **tab, int low, int high,
+static int	partition(t_list **tab, int low, int high,
 								int (*cmp)(t_list *e1, t_list *e2))
 {
 	int		i;
@@ -58,7 +59,7 @@ static int		partition(t_list **tab, int low, int high,
 	return (i);
 }
 
-static void		quicksort(t_list **tab, int low, int high,
+static void	quicksort(t_list **tab, int low, int high,
 								int (*cmp)(t_list *e1, t_list *e2))
 {
 	int	pivot;
@@ -71,7 +72,7 @@ static void		quicksort(t_list **tab, int low, int high,
 	}
 }
 
-t_list			**ft_lstquicksorttab(t_list *lst,
+t_list	**ft_lstquicksorttab(t_list *lst,
 											int (*cmp)(t_list *e1, t_list *e2))
 {
 	t_list	**tab;
@@ -79,7 +80,8 @@ t_list			**ft_lstquicksorttab(t_list *lst,
 
 	if (lst != NULL && cmp != NULL)
 	{
-		if ((len = ft_lstlen(lst)) <= 0)
+		len = ft_lstlen(lst);
+		if (len <= 0)
 			return (NULL);
 		tab = lst2tab(lst);
 		quicksort(tab, 0, len - 1, cmp);

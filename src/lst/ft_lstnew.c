@@ -6,23 +6,33 @@
 /*   By: abosch <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 16:48:16 by abosch            #+#    #+#             */
-/*   Updated: 2022/01/11 12:45:19 by abosch           ###   ########.fr       */
+/*   Updated: 2022/01/20 20:11:43 by abosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft/basic.h"
 #include "ft/list.h"
 
-t_list		*ft_lstnew(void const *content, size_t content_size)
+static t_list	*malloc_lst(void)
 {
 	t_list	*tmp;
 
-	if (!(tmp = (t_list*)ft_memalloc(sizeof(t_list))))
+	tmp = (t_list *)ft_memalloc(sizeof(t_list));
+	if (tmp == NULL)
 		return (NULL);
 	tmp->next = NULL;
-	if (content)
+	return (tmp);
+}
+
+t_list	*ft_lstnew(void const *content, size_t content_size)
+{
+	t_list	*tmp;
+
+	tmp = malloc_lst();
+	if (content && tmp)
 	{
-		if (!(tmp->content = ft_memalloc(content_size)))
+		tmp->content = ft_memalloc(content_size);
+		if (tmp->content == NULL)
 		{
 			free(tmp);
 			return (NULL);
